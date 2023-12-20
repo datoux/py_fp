@@ -29,16 +29,22 @@ def main():
 
 
     setup(name="py_fp",
-            version="1.0.0",
-            description="fp library",
+            version="1.0.1",
+            description="Front Panel Library",
             author="Daniel Turecek",
             author_email="daniel@turecek.de",
             include_package_data=True,
+            packages=["py_fp"],
+            package_dir={"py_fp": "py_fp"},
+            package_data={"py_fp": [
+                "__init__.pyi",
+                "py.typed",
+            ]},
             ext_modules=[
                  Extension(
                     "py_fp",
-                    sources=["py_fp.cpp",
-                             "fpdev.cpp" ],
+                    sources=["py_fp/py_fp.cpp",
+                             "py_fp/fpdev.cpp" ],
                     include_dirs=include_dirs,
                     define_macros=define_macros,
                     extra_compile_args=extra_compile_args,
