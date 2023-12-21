@@ -320,7 +320,7 @@ static PyMemberDef device_members[] =
 static PyMethodDef device_methods[] =
 {
    { "list_devices",   (PyCFunction) device_listDevices, METH_VARARGS, "List connected FrontPanel devices" },
-   { "open",          (PyCFunction) device_open, METH_VARARGS, "Open device(serial,firmware)" },
+   { "open",          (PyCFunction) device_open, METH_VARARGS, "Open device(serial,firmware,logfile)" },
    { "close",         (PyCFunction) device_close, METH_VARARGS, "close()" },
    { "set_wire_in",     (PyCFunction) device_setWireIn, METH_VARARGS, "set_wire_in(address, value, sendNow)" },
    { "get_wire_out",   (PyCFunction) device_getWireOut, METH_VARARGS, "get_wire_out(address, refreshWires)" },
