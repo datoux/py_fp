@@ -1,2 +1,6 @@
 build
 py_fp.egg-info
+venv
+dist
+fixed_wheels
+bin

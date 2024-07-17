@@ -5,7 +5,7 @@ from distutils.core import Extension, setup
 
 def main():
 
-    include_dirs=["frontpanel"]
+    include_dirs=["frontpanel", "./", "py_fp"]
     define_macros=[]
     extra_compile_args=[]
     extra_link_args=[]
@@ -15,7 +15,7 @@ def main():
         if platform.machine() == "arm64":
             extra_link_args=["-lokFrontPanel", "-Lfrontpanel/mac/arm64/", "-Wl,-rpath", "./"]
         else:
-            extra_link_args=["-lokFrontPanel", "-Lfrontpanel/mac"]
+            extra_link_args=["-lokFrontPanel", "-Lfrontpanel/mac", "-Wl,-rpath=./"]
 
 
     if sys.platform == "linux":
@@ -29,7 +29,7 @@ def main():
 
 
     setup(name="py_fp",
-            version="1.0.3",
+            version="1.0.4",
             description="Front Panel Library",
             author="Daniel Turecek",
             author_email="daniel@turecek.de",
@@ -39,6 +39,7 @@ def main():
             package_data={"py_fp": [
                 "__init__.pyi",
                 "py.typed",
+                "../libokFrontPanel.dylib",
             ]},
             ext_modules=[
                  Extension(
@@ -51,6 +52,7 @@ def main():
                     extra_link_args=extra_link_args,
                 )
             ])
+
 
 if __name__ == "__main__":
     main()
