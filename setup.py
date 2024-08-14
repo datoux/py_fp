@@ -29,7 +29,7 @@ def main():
 
 
     setup(name="py_fp",
-            version="1.0.4",
+            version="1.0.5",
             description="Front Panel Library",
             author="Daniel Turecek",
             author_email="daniel@turecek.de",
